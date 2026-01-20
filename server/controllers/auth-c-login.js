@@ -30,6 +30,7 @@ if(user){
     res.status(401).json({mssg:"Invalid Email or password"})
 }
 
+// error
     
     } catch (error) {
         res.status(500).send({Mssg:"INTERNAL SREVER ERROR"});
