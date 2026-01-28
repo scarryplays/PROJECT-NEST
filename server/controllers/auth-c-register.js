@@ -29,7 +29,7 @@ const register = async(req, res)=>{
         });
     } catch (error) {
      console.log(error);
-        
+        res.status(401).json({mssg: "code is oksy"})
     }
 }
 
