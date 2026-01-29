@@ -32,6 +32,13 @@ const saveProjectSchema = new mongoose.Schema(
     },
   },
   { timestamps: true }
+
+
 );
 
-module.exports = mongoose.model("Project", saveProjectSchema);
+
+
+const projectSchema = new mongoose.model("Project", saveProjectSchema);
+module.exports={projectSchema}
+
+// module.exports = mongoose.model("Project", saveProjectSchema);
