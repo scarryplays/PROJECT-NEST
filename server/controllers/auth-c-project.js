@@ -14,12 +14,11 @@ const project = async (req, res) => {
       techStack,
       currentStatus,
       gitHubLink,
-      user: req.user._id
     });
 
     res.status(201).json({
-      msg: "Project saved",
-      project: newProject
+      msg: "Project saved successfully",
+      project: newProject,
     });
 
   } catch (error) {
