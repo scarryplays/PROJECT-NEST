@@ -26,5 +26,6 @@ const project = async (req, res) => {
     res.status(500).json({ msg: "Server error" });
   }
 };
+// FOR COMMIt
 
 module.exports = { project };
