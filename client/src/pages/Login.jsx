@@ -1,3 +1,11 @@
+import "../style/login.css"
+
+
+
 export const Login =()=>{
-    return<h1>hello login page</h1>
+  return (
+    <div className="login-container">
+      Login Page
+    </div>
+  );
 }

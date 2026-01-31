@@ -5,6 +5,8 @@ import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Service } from "./pages/Service";
+// import {bkgvideo} from "./assets/bkgvideo";
+import {VideoBackground} from "../src/components/BgVideo"
 
 
 
@@ -12,6 +14,11 @@ import { Service } from "./pages/Service";
 
  const App = ()=>{
   return <>
+
+   {/* <video autoPlay muted loop id="bg-video">
+        <source src={bkgvideo} type="video/mp4" />
+      </video> */}
+      <VideoBackground/>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
