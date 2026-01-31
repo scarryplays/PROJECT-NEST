@@ -7,6 +7,7 @@ import { Register } from "./pages/Register";
 import { Service } from "./pages/Service";
 // import {bkgvideo} from "./assets/bkgvideo";
 import {VideoBackground} from "../src/components/BgVideo"
+import { Navbar } from "./components/Navbar";
 
 
 
@@ -19,6 +20,7 @@ import {VideoBackground} from "../src/components/BgVideo"
         <source src={bkgvideo} type="video/mp4" />
       </video> */}
       <VideoBackground/>
+      <Navbar/>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
