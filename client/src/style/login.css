@@ -26,3 +26,23 @@
     flex-direction: column;
     gap: 10px;
 }
+.login-input1{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-block-style: none;
+    /* border-block-end-style: none; */
+    border-left-style: none;
+    border-right-style: none;
+    text-align: center;
+    height: 28px;
+    width: 250px;
+}
+.login-input2{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-block-style: none;
+    /* border-block-end-style: none; */
+    border-left-style: none;
+    border-right-style: none;
+    text-align: center;
+    height: 28px;
+    width: 250px;
+}

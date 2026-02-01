@@ -1,21 +1,74 @@
+import { useState } from "react";
 import "../style/register.css"
 
 
 export const Register =()=>{
+const [user,setUser]=useState({
+    name:"",
+    username:"",
+    email:"",
+    phone:"",
+    password:""
+})
+
+const handleInput = (e)=>{
+console.log(e);
+let name =  e.target.name;
+let value = e.target.value
+
+
+setUser({
+    ...user,
+    [name]:value
+})
+}
+
+
+const handleSubmit =async (e)=>{
+    e.preventDefault();
+    alert(user);
+    console.log(user);
+   try {
+     const response = await fetch(`http://localhost:5000/api/auth/register`,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(user),
+
+    })
+     console.log(response);
+   } catch (error) {
+    console.log("CONNECTION FAIL",error);
+    
+   }
+  
+    
+}
+
+
+
+
+
+
     return (
     <div className="register-container">
-      <div class="register-card">
+      <div className="register-card">
     <h2>Create Account</h2>
 
-    <form>
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
-      <input type="password" placeholder="Confirm Password" required />
+    <form onSubmit={handleSubmit} className="register-form">
+      <input type="text" name="name" placeholder="name" id="name" autoComplete="off" value={user.name} onChange={handleInput} required />
+      <input type="text" name="username" placeholder="username" id="username" autoComplete="off" value={user.username} onChange={handleInput}  required />
+      <input type="email" name="email" placeholder="email" id="email"  autoComplete="off" value={user.email} onChange={handleInput}  required />
+      <input type="number" name="phone" placeholder="phone" id="phone"  autoComplete="off" value={user.phone} onChange={handleInput} required />
+      <input type="password" name="password" placeholder="password" id="password"  autoComplete="off" value={user.password} onChange={handleInput} required />
+      {/* <input type="password" placeholder="Confirm Password" required /> */}
 
       {/* <button type="submit">Register</button> */}
+       <br />
+    <button type="submit" className="register-btn">Register</button>
     </form>
-    <button type="submit">Register</button>
+    
 
     <p>Don't have an account? <a href="/login">Login</a></p>
   </div>
