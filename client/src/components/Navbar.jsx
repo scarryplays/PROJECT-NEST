@@ -9,7 +9,7 @@ export const Navbar = ()=>{
             <header className="sidebar">
   <div className="logo-area">
     <a href="/">
-      <img src={logo} alt="Logo" />
+      <img className="main-logo" src={logo} alt="Logo" />
     </a>
   </div>
 

@@ -1,5 +1,6 @@
 import "../style/login.css"
 import { useState } from "react"
+import {useNavigate} from "react-router-dom"
 
 
 
@@ -9,6 +10,8 @@ export const Login =()=>{
         email:"",
         password:"",
     })
+
+    const navigate = useNavigate()
 
 const handleInput = (e)=>{
 console.log(e);
@@ -23,10 +26,35 @@ setUser({
 }
 
 
-const handleSubmit = (e)=>{
+const handleSubmit =async (e)=>{
     e.preventDefault();
-    alert(user);
-    console.log(user);
+    // alert(user);
+    // console.log(user);
+   try {
+     const response = await fetch(`http://localhost:5000/api/auth/login`,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(user),
+
+    })
+    if(response.ok){
+      setUser({ 
+    email:"",
+    password:""})
+    alert("login successful")
+    // navigate("/login")
+    navigate("/")
+    }else{
+      alert("invalid credential")
+    }
+     console.log(response);
+   } catch (error) {
+    console.log("CONNECTION FAIL",error);
+    
+   }
+  
     
 }
 
@@ -53,12 +81,12 @@ const handleSubmit = (e)=>{
 
     <form onSubmit={handleSubmit} className="login-form">
       {/* <input type="text" placeholder="Full Name" required /> */}
-     <input className="login-input1" type="email" name="email" placeholder="email" id="email"  autoComplete="off" value={user.email} onChange={handleInput}  required />
+     <input className="login-input2" type="email" name="email" placeholder="email" id="email"  autoComplete="off" value={user.email} onChange={handleInput}  required />
       {/* <input type="number" name="phone" placeholder="phone" id="phone"  autoComplete="off" value={user.phone} onChange={handleInput} required /> */}
       <input className="login-input2" type="password" name="password" placeholder="password" id="password"  autoComplete="off" value={user.password} onChange={handleInput} required />
       {/* <input type="password" placeholder="Confirm Password" required /> */}
        {/* <br /> */}
-    <button type="submit" className="login-btn">Register</button>
+    <button type="submit" className="login-btn">Login</button>
     </form>
 
 

@@ -14,7 +14,7 @@ const corsOption= {
     credentials : true,
 }
 
-app.use(cors)
+// app.use(cors)
 app.use(cors(corsOption))
 
 
