@@ -54,23 +54,23 @@ const handleSubmit =async (e)=>{
     return (
     <div className="register-container">
       <div className="register-card">
-    <h2>Create Account</h2>
+    <h2 className="register-heading">Create Account</h2>
 
     <form onSubmit={handleSubmit} className="register-form">
-      <input type="text" name="name" placeholder="name" id="name" autoComplete="off" value={user.name} onChange={handleInput} required />
-      <input type="text" name="username" placeholder="username" id="username" autoComplete="off" value={user.username} onChange={handleInput}  required />
-      <input type="email" name="email" placeholder="email" id="email"  autoComplete="off" value={user.email} onChange={handleInput}  required />
-      <input type="number" name="phone" placeholder="phone" id="phone"  autoComplete="off" value={user.phone} onChange={handleInput} required />
-      <input type="password" name="password" placeholder="password" id="password"  autoComplete="off" value={user.password} onChange={handleInput} required />
+      <input className="register-input2" type="text" name="name" placeholder="Name" id="name" autoComplete="off" value={user.name} onChange={handleInput} required />
+      <input className="register-input2" type="text" name="username" placeholder="Username" id="username" autoComplete="off" value={user.username} onChange={handleInput}  required />
+      <input className="register-input2" type="email" name="email" placeholder="Email" id="email"  autoComplete="off" value={user.email} onChange={handleInput}  required />
+      <input maxlength="10" className="register-input2" type="number" name="phone" placeholder="Phone" id="phone"  autoComplete="off" value={user.phone} onChange={handleInput} required />
+      <input className="register-input2" type="password" name="password" placeholder="Password" id="password"  autoComplete="off" value={user.password} onChange={handleInput} required />
       {/* <input type="password" placeholder="Confirm Password" required /> */}
 
       {/* <button type="submit">Register</button> */}
-       <br />
+       {/* <br /> */}
     <button type="submit" className="register-btn">Register</button>
     </form>
     
 
-    <p>Don't have an account? <a href="/login">Login</a></p>
+    <p className="register-para">Don't have an account? <a href="/login">Login</a></p>
   </div>
     </div>
   );

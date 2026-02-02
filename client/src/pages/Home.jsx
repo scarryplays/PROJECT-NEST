@@ -1,4 +1,8 @@
+import "../style/home.css"
+
+
 export const Home =()=>{
-    return<h1>hello home page</h1>
+    return(
+    <div className="header-home"><h1>hello home page</h1></div>)
 
 }

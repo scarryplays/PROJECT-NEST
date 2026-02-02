@@ -9,7 +9,7 @@ const connectDb = require("./utils/db")
 
 
 const corsOption= {
-    origin:"http://localhost:5173/",
+    origin:"http://localhost:5173",
     methods:"GET,POST,PUT,DELETE,PATCH,HEAD",
     credentials : true,
 }

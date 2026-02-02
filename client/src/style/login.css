@@ -4,6 +4,10 @@
   justify-content: center;
   align-items: center;
 }
+.register-heading{
+        text-align: center;
+    font-size: 40px;
+}
 
 .login-card {
       /* background: white; */
@@ -24,25 +28,52 @@
 .login-form{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+    width: 250px;
 }
 .login-input1{
-    background-color: rgba(0, 0, 0, 0.5);
-    border-block-style: none;
-    /* border-block-end-style: none; */
-    border-left-style: none;
-    border-right-style: none;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.2);
+    border-block-end-style: none;
+    border-block-style: unset;
+    border-right-style: unset;
+    border-left-style: unset;
     text-align: center;
-    height: 28px;
-    width: 250px;
+    border-radius: 10px;
 }
+/* .login-input::placeholder{
+    color: red;
+} */
+::-webkit-login-input-placeholder {
+    color: #d92525;
+
+}
+
+
+
+
+
+
+
 .login-input2{
-    background-color: rgba(0, 0, 0, 0.5);
-    border-block-style: none;
-    /* border-block-end-style: none; */
-    border-left-style: none;
-    border-right-style: none;
+      height: 30px;
+    background: rgba(0, 0, 0, 0.2);
+    border-block-end-style: none;
+    border-block-style: unset;
+    border-right-style: unset;
+    border-left-style: unset;
     text-align: center;
-    height: 28px;
-    width: 250px;
+    border-radius: 10px;
+}
+
+.login-btn{
+width: 80px;
+    margin: auto;
+}
+.login-heading{
+        font-size: 40px;
+}
+
+.register-para{
+    text-align: center;
 }

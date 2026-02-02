@@ -53,11 +53,11 @@ const handleSubmit = (e)=>{
 
     <form onSubmit={handleSubmit} className="login-form">
       {/* <input type="text" placeholder="Full Name" required /> */}
-     <input type="email" name="email" placeholder="email" id="email"  autoComplete="off" value={user.email} onChange={handleInput}  required />
+     <input className="login-input1" type="email" name="email" placeholder="email" id="email"  autoComplete="off" value={user.email} onChange={handleInput}  required />
       {/* <input type="number" name="phone" placeholder="phone" id="phone"  autoComplete="off" value={user.phone} onChange={handleInput} required /> */}
-      <input type="password" name="password" placeholder="password" id="password"  autoComplete="off" value={user.password} onChange={handleInput} required />
+      <input className="login-input2" type="password" name="password" placeholder="password" id="password"  autoComplete="off" value={user.password} onChange={handleInput} required />
       {/* <input type="password" placeholder="Confirm Password" required /> */}
-       <br />
+       {/* <br /> */}
     <button type="submit" className="login-btn">Register</button>
     </form>
 
