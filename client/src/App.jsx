@@ -4,6 +4,7 @@ import { Home } from "./pages/Home";
  import { Contact } from "./pages/Contact";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
+import { ProjectDashboard } from "./pages/ProjectDashboard";
 import { Service } from "./pages/Service";
 // import {bkgvideo} from "./assets/bkgvideo";
 import {VideoBackground} from "../src/components/BgVideo"
@@ -29,6 +30,7 @@ import { Navbar } from "./components/Navbar";
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/service" element={<Service />} />
+        <Route path="/projectDashboard" element={<ProjectDashboard />} />
       </Routes>
     </BrowserRouter>
   </>

@@ -38,7 +38,7 @@ const navigate= useNavigate();
           {/* <Link to="/login" className="btn primary">Login</Link>
           <Link to="/register" className="btn secondary">Get Started</Link> */}
           <button onClick={navigate("/login")} className="home-btn1">Login</button>
-          <button onClick={navigate("/regiter")} className="home-btn2">Get Started</button>
+          <button onClick={navigate("/register")} className="home-btn2">Get Started</button>
 
 
 
