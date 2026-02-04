@@ -29,7 +29,7 @@ export const ProjectDashboard = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/api/project", {
+      const res = await fetch("http://localhost:5000/api/auth/project", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

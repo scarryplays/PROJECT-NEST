@@ -1,6 +1,7 @@
 import "../style/login.css"
 import { useState } from "react"
 import {useNavigate} from "react-router-dom"
+import { useAuth } from "../store/auth";
 
 
 
@@ -12,6 +13,7 @@ export const Login =()=>{
     })
 
     const navigate = useNavigate()
+     const {storeTokenInls} = useAuth()
 
 const handleInput = (e)=>{
 console.log(e);
@@ -40,6 +42,18 @@ const handleSubmit =async (e)=>{
 
     })
     if(response.ok){
+
+  const res_data = await response.json();
+     console.log("token aagaya ooye", res_data)
+     storeTokenInls(res_data.token)
+    // localStorage.setItem("token",res_data.token)
+
+
+
+
+
+
+
       setUser({ 
     email:"",
     password:""})

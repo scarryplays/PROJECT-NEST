@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../style/register.css"
 import {useNavigate} from "react-router-dom"
+import { useAuth } from "../store/auth";
 
 
 export const Register =()=>{
@@ -12,6 +13,10 @@ const [user,setUser]=useState({
     password:""
 })
     const navigate = useNavigate()
+ const {storeTokenInls} = useAuth()
+
+
+
 const handleInput = (e)=>{
 console.log(e);
 let name =  e.target.name;
@@ -39,6 +44,19 @@ const handleSubmit =async (e)=>{
 
     })
     if(response.ok){
+
+     const res_data = await response.json();
+     console.log("token aagaya ooye", res_data)
+     storeTokenInls(res_data.token)
+
+
+
+
+
+
+
+
+
       setUser({  name:"",
     username:"",
     email:"",
@@ -46,7 +64,7 @@ const handleSubmit =async (e)=>{
     password:""})
     alert("registeration successful")
     // navigate("/login")
-    navigate("/login")
+    navigate("/")
     }
      console.log(response);
    } catch (error) {
