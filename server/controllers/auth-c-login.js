@@ -8,10 +8,16 @@ const bcrypt = require("bcryptjs")
 const login = async(req, res)=>{
     try {
         // console.log(req.body);
-        const {email,password}= req.body;
+
+        
+        const {emailOrpassword,password}= req.body;
+
         const userExist = await User.findOne({
-            email
-        })
+      $or: [
+        { email: emailOrpassword },
+        { username: emailOrpassword }
+      ]
+    });
         
            if(!userExist){
             return res.status(400).json({mssg:"Invalid Creadential"})

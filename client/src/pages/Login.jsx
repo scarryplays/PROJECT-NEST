@@ -1,19 +1,19 @@
 import "../style/login.css"
 import { useState } from "react"
 import {useNavigate} from "react-router-dom"
-import { useAuth } from "../store/auth";
+// import { useAuth } from "../store/auth";
 
 
 
 export const Login =()=>{
 
     const [user,setUser]=useState({
-        email:"",
+        emailOrpassword:"",
         password:"",
     })
 
     const navigate = useNavigate()
-     const {storeTokenInls} = useAuth()
+    //  const {storeTokenInls} = useAuth()
 
 const handleInput = (e)=>{
 console.log(e);
@@ -45,7 +45,7 @@ const handleSubmit =async (e)=>{
 
   const res_data = await response.json();
      console.log("token aagaya ooye", res_data)
-     storeTokenInls(res_data.token)
+    //  storeTokenInls(res_data.token)
     // localStorage.setItem("token",res_data.token)
 
 
@@ -55,7 +55,7 @@ const handleSubmit =async (e)=>{
 
 
       setUser({ 
-    email:"",
+    emailOrpassword:"",
     password:""})
     alert("login successful")
     // navigate("/login")
@@ -95,7 +95,7 @@ const handleSubmit =async (e)=>{
 
     <form onSubmit={handleSubmit} className="login-form">
       {/* <input type="text" placeholder="Full Name" required /> */}
-     <input className="login-input2" type="email" name="email" placeholder="email" id="email"  autoComplete="off" value={user.email} onChange={handleInput}  required />
+     <input className="login-input2" type="text" name="emailOrpassword" placeholder="email/Password" id="emailOrpassword"  autoComplete="off" value={user.emailOrpassword} onChange={handleInput}  required />
       {/* <input type="number" name="phone" placeholder="phone" id="phone"  autoComplete="off" value={user.phone} onChange={handleInput} required /> */}
       <input className="login-input2" type="password" name="password" placeholder="password" id="password"  autoComplete="off" value={user.password} onChange={handleInput} required />
       {/* <input type="password" placeholder="Confirm Password" required /> */}
