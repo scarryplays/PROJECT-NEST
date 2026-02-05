@@ -104,7 +104,7 @@ const handleSubmit =async (e)=>{
     </form>
 
 
-    <p className="login-para">Don't have an account? <a href="/register">Register</a></p>
+    <p className="login-para">Already have an account? <a href="/register">Register</a></p>
   </div>
     </div>
   );
