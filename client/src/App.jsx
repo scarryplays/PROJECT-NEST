@@ -23,7 +23,7 @@ import { Navbar } from "./components/Navbar";
       </video> */}
       <VideoBackground/>
       <Navbar/>
-    <BrowserRouter>
+   
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -33,8 +33,9 @@ import { Navbar } from "./components/Navbar";
         <Route path="/logout" element={<Logout />} />
         <Route path="/service" element={<Service />} />
         <Route path="/projectDashboard" element={<ProjectDashboard />} />
+        {/* <Route path="*" element={<Error />} /> */}
       </Routes>
-    </BrowserRouter>
+
   </>
 }
 

@@ -62,13 +62,13 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
-.sidebar-menu a.active {
+/* .sidebar-menu a.active {
   opacity: 1;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 6px;
   font-weight: 600;
-}
+} */
 
-.sidebar-menu li:hover a.active {
+/* .sidebar-menu li:hover a.active {
   background: rgba(255, 255, 255, 0.25);
-}
+} */

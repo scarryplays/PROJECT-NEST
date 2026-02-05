@@ -1,10 +1,12 @@
 import "../style/navbar.css";
 import logo from "../assets/logo.png";
-import { useAuth } from "../store/auth";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../store/auth";
 
 export const Navbar = () => {
   const { isLoggedIn } = useAuth();
+  // console.log(useAuth);
+  
 
   return (
     <header className="sidebar">
@@ -22,11 +24,13 @@ export const Navbar = () => {
             </NavLink>
           </li>
 
-          <li>
-            <NavLink to="/projectDashboard" className="nav-link">
-              Project Dashboard
-            </NavLink>
-          </li>
+          {isLoggedIn && (
+            <li>
+              <NavLink to="/projectDashboard" className="nav-link">
+                Project Dashboard
+              </NavLink>
+            </li>
+          )}
 
           <li>
             <NavLink to="/about" className="nav-link">
