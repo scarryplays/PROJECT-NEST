@@ -13,7 +13,7 @@ const [user,setUser]=useState({
     password:""
 })
     const navigate = useNavigate()
- const {storeTokenInls} = useAuth()
+ const {storeToken} = useAuth()
 
 
 
@@ -47,7 +47,7 @@ const handleSubmit =async (e)=>{
 
      const res_data = await response.json();
      console.log("token aagaya ooye", res_data)
-     storeTokenInls(res_data.token)
+     storeToken(res_data.token)
 
 
 

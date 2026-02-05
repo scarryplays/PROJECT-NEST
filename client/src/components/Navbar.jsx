@@ -1,30 +1,68 @@
-import "../style/navbar.css"
+import "../style/navbar.css";
 import logo from "../assets/logo.png";
+import { useAuth } from "../store/auth";
+import { NavLink } from "react-router-dom";
 
+export const Navbar = () => {
+  const { isLoggedIn } = useAuth();
 
+  return (
+    <header className="sidebar">
+      <div className="logo-area">
+        <NavLink to="/">
+          <img className="main-logo" src={logo} alt="Logo" />
+        </NavLink>
+      </div>
 
-export const Navbar = ()=>{
-    return (
-        <>
-            <header className="sidebar">
-  <div className="logo-area">
-    <a href="/">
-      <img className="main-logo" src={logo} alt="Logo" />
-    </a>
-  </div>
+      <nav className="sidebar-menu">
+        <ul>
+          <li>
+            <NavLink to="/" end className="nav-link">
+              Home
+            </NavLink>
+          </li>
 
-  <nav className="sidebar-menu">
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/projectDashboard">Project Dashboard</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
-      <li><a href="/login">Login</a></li>
-      <li><a href="/register">Register</a></li>
-    </ul>
-  </nav>
-</header>
+          <li>
+            <NavLink to="/projectDashboard" className="nav-link">
+              Project Dashboard
+            </NavLink>
+          </li>
 
-        </>
-    )
-}
+          <li>
+            <NavLink to="/about" className="nav-link">
+              About
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/contact" className="nav-link">
+              Contact
+            </NavLink>
+          </li>
+
+          {isLoggedIn ? (
+            <li>
+              <NavLink to="/logout" className="nav-link logout">
+                Logout
+              </NavLink>
+            </li>
+          ) : (
+            <>
+              <li>
+                <NavLink to="/login" className="nav-link">
+                  Login
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/register" className="nav-link">
+                  Register
+                </NavLink>
+              </li>
+            </>
+          )}
+        </ul>
+      </nav>
+    </header>
+  );
+};

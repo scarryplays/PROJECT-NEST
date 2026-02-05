@@ -3,6 +3,7 @@ import { Home } from "./pages/Home";
  import { About } from "./pages/About";
  import { Contact } from "./pages/Contact";
 import { Login } from "./pages/Login";
+import { Logout } from "./pages/Logout";
 import { Register } from "./pages/Register";
 import { ProjectDashboard } from "./pages/ProjectDashboard";
 import { Service } from "./pages/Service";
@@ -29,6 +30,7 @@ import { Navbar } from "./components/Navbar";
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="/service" element={<Service />} />
         <Route path="/projectDashboard" element={<ProjectDashboard />} />
       </Routes>
