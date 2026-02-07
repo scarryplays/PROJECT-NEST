@@ -87,6 +87,7 @@ export const Contact = () => {
             onChange={handleInput}
             required
           ></textarea>
+          {/* for commit */}
 
           <button type="submit" className="Contact-btn">
             Send Message
