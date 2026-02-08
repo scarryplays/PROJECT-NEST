@@ -19,7 +19,7 @@
    /* color: #f8fafc;  */
   /* color: #eaf2ff; */
 color: #05132a;
-   text-shadow: 0 6px 25px rgba(0, 0, 0, 64.35);
+   /* text-shadow: 0 6px 25px rgba(0, 0, 0, 64.35); */
 }
 
 .hero-home p {
@@ -85,6 +85,26 @@ margin-bottom: 35px;
   /* background: rgba(59, 130, 246, 0.15); */
   transform: translateY(-2px);
    background: rgba(255, 255, 255, 0.25);
+}
+.home-btn3 {
+  padding: 14px 34px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  /* background: #3b82f6; */
+  /* color: white; */
+  font-weight: bold;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.45);
+}
+
+.home-btn3:hover {
+  /* background: #2563eb; */
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-2px);
 }
 
 

@@ -38,12 +38,9 @@
     text-align: center;
     border-radius: 10px;
 }
-/* .login-input::placeholder{
-    color: red;
-} */
-::-webkit-login-input-placeholder {
-    color: #d92525;
 
+.register-input2::placeholder{
+    color: rgba(255, 255, 255, 0.4);
 }
 
 
@@ -63,7 +60,7 @@
     border-radius: 10px;
 } */
 
-.register-btn{
+/* .register-btn{
     width: 80px;
     margin: auto;
     background: rgba(237, 1, 6, 0.2);
@@ -76,10 +73,33 @@
      width: 140px;
 }
 .register-btn:hover{
-  /* /* color: rgba(red, 400, blue, 0.2); */
-  background-color: rgba(0, 400, 0, 0.2);
+   color: rgba(255, 0, 0, 0.2); 
+  background-color: rgba(0, 255, 0, 0.2);
   cursor: pointer;
-}
+} */
 .register-heading{
         font-size: 40px;
+}
+
+
+
+.register-btn{
+  padding: 14px 34px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  /* background: #3b82f6; */
+  /* color: white; */
+  font-weight: bold;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.45);
+}
+
+.register-btn:hover {
+  /* background: #2563eb; */
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-2px);
 }
