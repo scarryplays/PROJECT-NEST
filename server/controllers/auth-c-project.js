@@ -14,6 +14,7 @@ const project = async (req, res) => {
       techStack,
       currentStatus,
       gitHubLink,
+      userId: req.user._id, // Assuming you have user authentication and want to associate the project with a user
     });
 
     res.status(201).json({
@@ -26,6 +27,20 @@ const project = async (req, res) => {
     res.status(500).json({ msg: "Server error" });
   }
 };
+const getUserProjects = async (req, res) => {
+  try {
+
+    const projects = await projectSchema.find({
+      userId: req.user._id  
+    });
+
+    res.status(200).json(projects);
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "Server error" });
+  }
+};
 // FOR COMMIt
 
-module.exports = { project };
+module.exports = { project, getUserProjects };

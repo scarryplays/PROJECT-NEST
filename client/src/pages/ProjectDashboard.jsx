@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../style/projectdashboard.css";
 
 export const ProjectDashboard = () => {
+
   const [formData, setFormData] = useState({
     projectName: "",
     description: "",
@@ -11,6 +12,30 @@ export const ProjectDashboard = () => {
   });
 
   const [projects, setProjects] = useState([]);
+
+  // fetch projects on component mount
+  useEffect(() => {
+
+    const fetchProjects = async () => {
+      try {
+
+        const res = await fetch("http://localhost:5000/api/auth/projects", {
+          headers: {
+            Authorization: localStorage.getItem("token")
+          }
+        });
+
+        const data = await res.json();
+        setProjects(data);
+
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchProjects();
+
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,7 +56,10 @@ export const ProjectDashboard = () => {
     try {
       const res = await fetch("http://localhost:5000/api/auth/project", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.getItem("token") 
+        },
         body: JSON.stringify(payload),
       });
 
@@ -51,6 +79,7 @@ export const ProjectDashboard = () => {
         currentStatus: "planning",
         gitHubLink: "",
       });
+
     } catch (err) {
       console.error(err);
     }
