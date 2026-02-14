@@ -4,63 +4,166 @@
 }
 
 .dashboard-title {
-    margin-bottom: 20px;
-    color: black;
-    text-align: center;
+  margin-bottom: 30px;
+  color: black;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
 }
 
 
+
 .project-form {
-    max-width: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 40px;
-    display: flex;
-    gap: 20px;
-    flex-direction: row;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  backdrop-filter: blur(8px);
 }
 
 .project-form input,
 .project-form textarea,
 .project-form select {
-  width: 100%;
-  margin-bottom: 12px;
-  padding: 10px;
-  border-radius: 6px;
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
   border: 1px solid #334155;
   background: #020617;
   color: white;
+  font-size: 14px;
+}
+
+.project-form textarea {
+  resize: none;
+  height: 45px;
 }
 
 .project-form button {
-  width: 100%;
-  padding: 12px;
+  padding: 12px 20px;
   background: #2563eb;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   color: white;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
+  transition: 0.3s ease;
+  white-space: nowrap;
 }
+
+.project-form button:hover {
+  background: #1d4ed8;
+}
+
+
 
 .project-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
+
+
 .project-card {
-    background: rgba(0, 0, 0, 0.45);
-    padding: 18px;
-    border-radius: 12px;
-    display: flex;
-    gap: 20px;
-    flex-direction: row;
-    justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 22px 28px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  backdrop-filter: blur(8px);
+  transition: 0.3s ease;
 }
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 180px;
+}
+
+.project-info h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.project-description {
+  max-width: 320px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-width: 220px;
+}
+
+
+
+.tech-badge {
+  background: #1e293b;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  color: #38bdf8;
+  border: 1px solid #334155;
+}
+
+
+
+.status-badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.status-planning {
+  background: #facc15;
+  color: black;
+}
+
+.status-in-progress {
+  background: #3b82f6;
+  color: white;
+}
+
+.status-completed {
+  background: #22c55e;
+  color: white;
+}
+
+.status-on-hold {
+  background: #ef4444;
+  color: white;
+}
+
+
 
 .project-card a {
   color: #60a5fa;
   text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: 0.3s ease;
+}
+
+.project-card a:hover {
+  color: #3b82f6;
 }

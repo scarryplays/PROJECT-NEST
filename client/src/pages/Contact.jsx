@@ -32,7 +32,7 @@ export const Contact = () => {
       if (response.ok) {
         alert("Message sent successfully");
         setFormData({
-          username: "",
+          name: "",
           email: "",
           phone: "",    
           message: "",
@@ -54,9 +54,9 @@ export const Contact = () => {
           <input
             className="Contact-input"
             type="text"
-            name="username"
+            name="name"
             placeholder="Your Name"
-            value={formData.username}
+            value={formData.name}
             onChange={handleInput}
             required
           />

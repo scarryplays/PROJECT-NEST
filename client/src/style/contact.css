@@ -1,50 +1,50 @@
-
 .Contact-container {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px;
-  background: rgba(0, 0, 0, 0.6);
+  padding: 60px 20px;
 }
-
 
 .Contact-card {
   width: 100%;
-  max-width: 420px;
-  background: rgba(20, 20, 20, 0.85);
-  backdrop-filter: blur(10px);
-  border-radius: 14px;
+  max-width: 450px;
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
   padding: 32px 28px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6);
+  transition: 0.3s ease;
 }
 
+.Contact-card:hover {
+  transform: translateY(-4px);
+}
 
 .Contact-heading {
   text-align: center;
-  color: #ffffff;
-  margin-bottom: 22px;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   font-weight: 600;
+  margin-bottom: 22px;
+  color: #ffffff;
 }
-
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 15px;
 }
 
 .Contact-input {
-  width: 100%;
+  /* width: 100%; */
   padding: 12px 14px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.05);
   color: #ffffff;
   font-size: 0.95rem;
   outline: none;
-  transition: all 0.25s ease;
+  transition: 0.25s ease;
 }
 
 .Contact-input::placeholder {
@@ -52,33 +52,31 @@
 }
 
 .Contact-input:focus {
-  border-color: #3b82f6;
-  background: rgba(0, 0, 0, 0.6);
+  border-color: #6366f1;
+  background: rgba(255, 255, 255, 0.08);
 }
 
-
-.Contact-input textarea,
 textarea.Contact-input {
+  min-height: 110px;
   resize: none;
-  min-height: 120px;
 }
 
 .Contact-btn {
-  margin-top: 10px;
+  margin-top: 6px;
   padding: 12px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
   color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .Contact-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
 }
 
 @media (max-width: 480px) {
@@ -87,6 +85,6 @@ textarea.Contact-input {
   }
 
   .Contact-heading {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 }

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import "../style/projectdashboard.css";
 
 export const ProjectDashboard = () => {
-
   const [formData, setFormData] = useState({
     projectName: "",
     description: "",
@@ -13,28 +12,25 @@ export const ProjectDashboard = () => {
 
   const [projects, setProjects] = useState([]);
 
-  // fetch projects on component mount
   useEffect(() => {
-
     const fetchProjects = async () => {
       try {
-
         const res = await fetch("http://localhost:5000/api/auth/projects", {
           headers: {
-            Authorization: localStorage.getItem("token")
-          }
+            Authorization: localStorage.getItem("token"),
+          },
         });
+
+        if (!res.ok) return;
 
         const data = await res.json();
         setProjects(data);
-
       } catch (error) {
         console.log(error);
       }
     };
 
     fetchProjects();
-
   }, []);
 
   const handleChange = (e) => {
@@ -58,7 +54,7 @@ export const ProjectDashboard = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: localStorage.getItem("token") 
+          Authorization: localStorage.getItem("token"),
         },
         body: JSON.stringify(payload),
       });
@@ -79,9 +75,8 @@ export const ProjectDashboard = () => {
         currentStatus: "planning",
         gitHubLink: "",
       });
-
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -108,7 +103,7 @@ export const ProjectDashboard = () => {
 
         <input
           name="techStack"
-          placeholder="Tech Stack (React, Node)"
+          placeholder="Tech Stack (React, Node, MongoDB)"
           value={formData.techStack}
           onChange={handleChange}
           required
@@ -137,17 +132,42 @@ export const ProjectDashboard = () => {
       </form>
 
       <section className="project-list">
-        {projects.map((project) => (
-          <div className="project-card" key={project._id}>
-            <h3>{project.projectName}</h3>
-            <p><strong>Status:</strong> {project.currentStatus}</p>
-            <p><strong>Tech:</strong> {project.techStack.join(", ")}</p>
-            <p>{project.description}</p>
-            <a href={project.gitHubLink} target="_blank" rel="noreferrer">
-              GitHub Repo
-            </a>
-          </div>
-        ))}
+        {projects.length === 0 ? (
+          <p style={{ opacity: 0.7 }}>No projects yet...</p>
+        ) : (
+          projects.map((project) => (
+            <div className="project-card" key={project._id}>
+              <div className="project-info">
+                <h3>{project.projectName}</h3>
+                <span
+                  className={`status-badge status-${project.currentStatus}`}
+                >
+                  {project.currentStatus}
+                </span>
+              </div>
+
+              <p className="project-description">
+                {project.description}
+              </p>
+
+              <div className="tech-stack">
+                {project.techStack.map((tech, index) => (
+                  <span key={index} className="tech-badge">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <a
+                href={project.gitHubLink}
+                target="_blank"
+                rel="noreferrer"
+              >
+                View on GitHub
+              </a>
+            </div>
+          ))
+        )}
       </section>
     </div>
   );
