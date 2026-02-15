@@ -43,26 +43,22 @@ margin-bottom: 35px;
   gap: 20px;
 }
 
-
 .home-btn1 {
-  padding: 14px 34px;
-  font-size: 16px;
+  margin-top: 6px;
+  padding: 12px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  /* background: #3b82f6; */
-  /* color: white; */
-  font-weight: bold;
-  transition: all 0.3s ease;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
   color: #ffffff;
-  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.45);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s ease;
 }
 
 .home-btn1:hover {
-  /* background: #2563eb; */
-  background: linear-gradient(135deg, #1d4ed8, #1e40af);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
 }
 
 .home-btn2 {
@@ -87,26 +83,22 @@ margin-bottom: 35px;
    background: rgba(255, 255, 255, 0.25);
 }
 .home-btn3 {
-  padding: 14px 34px;
-  font-size: 16px;
+  margin-top: 6px;
+  padding: 12px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  /* background: #3b82f6; */
-  /* color: white; */
-  font-weight: bold;
-  transition: all 0.3s ease;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
   color: #ffffff;
-  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.45);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s ease;
 }
 
 .home-btn3:hover {
-  /* background: #2563eb; */
-  background: linear-gradient(135deg, #1d4ed8, #1e40af);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
 }
-
 
 @media (max-width: 768px) {
   .hero-home h1 {

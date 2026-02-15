@@ -11,27 +11,22 @@ export const ProjectDashboard = () => {
   });
 
   const [projects, setProjects] = useState([]);
+  const [editId, setEditId] = useState(null);
 
   useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const res = await fetch("http://localhost:5000/api/auth/projects", {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        });
-
-        if (!res.ok) return;
-
-        const data = await res.json();
-        setProjects(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
     fetchProjects();
   }, []);
+
+  const fetchProjects = async () => {
+    const res = await fetch("http://localhost:5000/api/auth/projects", {
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    });
+
+    const data = await res.json();
+    setProjects(data);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,35 +44,55 @@ export const ProjectDashboard = () => {
         .filter(Boolean),
     };
 
-    try {
-      const res = await fetch("http://localhost:5000/api/auth/project", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: localStorage.getItem("token"),
-        },
-        body: JSON.stringify(payload),
-      });
+    const url = editId
+      ? `http://localhost:5000/api/auth/projects/${editId}`
+      : "http://localhost:5000/api/auth/projects";
 
-      const data = await res.json();
+    const method = editId ? "PUT" : "POST";
 
-      if (!res.ok) {
-        alert(data.msg || "Error");
-        return;
-      }
+    const res = await fetch(url, {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    });
 
-      setProjects((prev) => [...prev, data.project]);
+    if (!res.ok) return;
 
-      setFormData({
-        projectName: "",
-        description: "",
-        techStack: "",
-        currentStatus: "planning",
-        gitHubLink: "",
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    setFormData({
+      projectName: "",
+      description: "",
+      techStack: "",
+      currentStatus: "planning",
+      gitHubLink: "",
+    });
+
+    setEditId(null);
+    fetchProjects();
+  };
+
+  const handleDelete = async (id) => {
+    await fetch(`http://localhost:5000/api/auth/projects/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    });
+
+    fetchProjects();
+  };
+
+  const handleEdit = (project) => {
+    setEditId(project._id);
+    setFormData({
+      projectName: project.projectName,
+      description: project.description,
+      techStack: project.techStack.join(", "),
+      currentStatus: project.currentStatus,
+      gitHubLink: project.gitHubLink,
+    });
   };
 
   return (
@@ -103,7 +118,7 @@ export const ProjectDashboard = () => {
 
         <input
           name="techStack"
-          placeholder="Tech Stack (React, Node, MongoDB)"
+          placeholder="Tech Stack (React, Node)"
           value={formData.techStack}
           onChange={handleChange}
           required
@@ -128,46 +143,46 @@ export const ProjectDashboard = () => {
           required
         />
 
-        <button type="submit">Add Project</button>
+        <button type="submit">
+          {editId ? "Update Project" : "Add Project"}
+        </button>
       </form>
 
       <section className="project-list">
-        {projects.length === 0 ? (
-          <p style={{ opacity: 0.7 }}>No projects yet...</p>
-        ) : (
-          projects.map((project) => (
-            <div className="project-card" key={project._id}>
-              <div className="project-info">
-                <h3>{project.projectName}</h3>
-                <span
-                  className={`status-badge status-${project.currentStatus}`}
-                >
-                  {project.currentStatus}
+        {projects.map((project) => (
+          <div className="project-card" key={project._id}>
+            <div>
+              <h3>{project.projectName}</h3>
+              <span className={`status-${project.currentStatus}`}>
+                {project.currentStatus}
+              </span>
+            </div>
+
+            <p>{project.description}</p>
+
+            <div className="tech-stack">
+              {project.techStack.map((tech, i) => (
+                <span key={i} className="tech-badge">
+                  {tech}
                 </span>
-              </div>
+              ))}
+            </div>
 
-              <p className="project-description">
-                {project.description}
-              </p>
-
-              <div className="tech-stack">
-                {project.techStack.map((tech, index) => (
-                  <span key={index} className="tech-badge">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
+            <div className="project-actions">
+              <button onClick={() => handleEdit(project)}>Edit</button>
+              <button onClick={() => handleDelete(project._id)}>
+                Delete
+              </button>
               <a
                 href={project.gitHubLink}
                 target="_blank"
                 rel="noreferrer"
               >
-                View on GitHub
+                GitHub
               </a>
             </div>
-          ))
-        )}
+          </div>
+        ))}
       </section>
     </div>
   );
