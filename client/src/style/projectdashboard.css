@@ -11,8 +11,6 @@
   font-weight: 700;
 }
 
-
-
 .project-form {
   width: 100%;
   background: rgba(0, 0, 0, 0.45);
@@ -59,15 +57,11 @@
   background: #1d4ed8;
 }
 
-
-
 .project-list {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
-
-
 
 .project-card {
   background: rgba(0, 0, 0, 0.55);
@@ -87,83 +81,103 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
-.project-info {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  min-width: 180px;
-}
-
-.project-info h3 {
+.project-card h3 {
   font-size: 18px;
   font-weight: 600;
-}
-
-.project-description {
-  max-width: 320px;
-  font-size: 14px;
-  opacity: 0.85;
 }
 
 .tech-stack {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  min-width: 220px;
 }
 
-
-
 .tech-badge {
-  background: #1e293b;
   padding: 6px 12px;
   border-radius: 16px;
   font-size: 12px;
+  background: #1e293b;
   color: #38bdf8;
   border: 1px solid #334155;
-}
-
-
-
-.status-badge {
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: capitalize;
-  white-space: nowrap;
 }
 
 .status-planning {
   background: #facc15;
   color: black;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .status-in-progress {
   background: #3b82f6;
   color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .status-completed {
   background: #22c55e;
   color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .status-on-hold {
   background: #ef4444;
   color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
+.project-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-
-.project-card a {
-  color: #60a5fa;
-  text-decoration: none;
+.project-actions button {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
   font-weight: 500;
-  white-space: nowrap;
   transition: 0.3s ease;
 }
 
-.project-card a:hover {
+.project-actions button:first-child {
+  background: #3b82f6;
+  color: white;
+}
+
+.project-actions button:first-child:hover {
+  background: #2563eb;
+}
+
+.project-actions button:nth-child(2) {
+  background: #ef4444;
+  color: white;
+}
+
+.project-actions button:nth-child(2):hover {
+  background: #dc2626;
+}
+
+.project-actions a {
+  text-decoration: none;
+  color: #60a5fa;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.project-actions a:hover {
   color: #3b82f6;
 }

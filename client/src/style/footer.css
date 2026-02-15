@@ -1,0 +1,17 @@
+.footer {
+  margin-top: 60px;
+  padding: 18px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  color: #cbd5e1;
+  font-size: 14px;
+}
+.footer a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+.footer a:hover {
+  color: #3b82f6;
+}

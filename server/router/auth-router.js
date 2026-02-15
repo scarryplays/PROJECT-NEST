@@ -15,8 +15,8 @@ router.route("/register").post(register);
 router.route("/login").post(login);
 router.route("/project").post(authMiddleware, project);
 router.route("/projects").get(authMiddleware, getUserProjects);
-router.route("/project/:id").delete(authMiddleware, deleteProject);
-router.route("/project/:id").put(authMiddleware, updateProject);
+router.route("/projects/:id").delete(authMiddleware, deleteProject);
+router.route("/projects/:id").put(authMiddleware, updateProject);
 
 
 // hello

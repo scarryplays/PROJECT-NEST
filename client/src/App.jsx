@@ -10,6 +10,7 @@ import { Service } from "./pages/Service";
 // import {bkgvideo} from "./assets/bkgvideo";
 import {VideoBackground} from "../src/components/BgVideo"
 import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
 
 
 
@@ -35,6 +36,8 @@ import { Navbar } from "./components/Navbar";
         <Route path="/projectDashboard" element={<ProjectDashboard />} />
         {/* <Route path="*" element={<Error />} /> */}
       </Routes>
+      <Footer/>
+      
 
   </>
 }

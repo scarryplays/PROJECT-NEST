@@ -2,18 +2,28 @@ import "../style/navbar.css";
 import logo from "../assets/logo.png";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { useState } from "react";
 
 export const Navbar = () => {
   const { isLoggedIn } = useAuth();
-  // console.log(useAuth);
-  
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className="sidebar">
-      <div className="logo-area">
-        <NavLink to="/">
-          <img className="main-logo" src={logo} alt="Logo" />
-        </NavLink>
+    <header
+      className={`sidebar ${open ? "open" : ""}`}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <div
+        className="top-section"
+        onMouseEnter={() => setOpen(true)}
+      >
+        <div className="logo-area">
+          <NavLink to="/">
+            <img className="main-logo" src={logo} alt="Logo" />
+          </NavLink>
+        </div>
+
+        <div className="hamburger">☰</div>
       </div>
 
       <nav className="sidebar-menu">
@@ -46,7 +56,7 @@ export const Navbar = () => {
 
           {isLoggedIn ? (
             <li>
-              <NavLink to="/logout" className="nav-link logout">
+              <NavLink to="/logout" className="nav-link">
                 Logout
               </NavLink>
             </li>
@@ -57,7 +67,6 @@ export const Navbar = () => {
                   Login
                 </NavLink>
               </li>
-
               <li>
                 <NavLink to="/register" className="nav-link">
                   Register

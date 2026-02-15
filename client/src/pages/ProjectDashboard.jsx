@@ -46,7 +46,7 @@ export const ProjectDashboard = () => {
 
     const url = editId
       ? `http://localhost:5000/api/auth/projects/${editId}`
-      : "http://localhost:5000/api/auth/projects";
+      : "http://localhost:5000/api/auth/project";
 
     const method = editId ? "PUT" : "POST";
 
