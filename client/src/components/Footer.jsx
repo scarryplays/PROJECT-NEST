@@ -9,3 +9,6 @@ export const Footer = () => {
     </footer>
   );
 };
+
+
+// gonna deploy this project on Azure and AWS
