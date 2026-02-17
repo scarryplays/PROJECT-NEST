@@ -11,4 +11,4 @@ export const Footer = () => {
 };
 
 
-// gonna deploy this project on Azure and AWS
+// gonna deploy this project on Azure and AWS    sc
