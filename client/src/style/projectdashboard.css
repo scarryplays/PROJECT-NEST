@@ -1,25 +1,28 @@
 .dashboard-wrapper {
   padding: 40px;
   color: #f8fafc;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .dashboard-title {
   margin-bottom: 30px;
   color: black;
   text-align: center;
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .project-form {
   width: 100%;
   background: rgba(0, 0, 0, 0.45);
-  padding: 20px;
+  padding: 22px;
   border-radius: 14px;
   margin-bottom: 50px;
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 25px;
   align-items: center;
   backdrop-filter: blur(8px);
 }
@@ -34,6 +37,14 @@
   background: #020617;
   color: white;
   font-size: 14px;
+  transition: 0.25s ease;
+}
+
+.project-form input:focus,
+.project-form textarea:focus,
+.project-form select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
 }
 
 .project-form textarea {
@@ -42,7 +53,7 @@
 }
 
 .project-form button {
-  padding: 12px 20px;
+  padding: 12px 22px;
   background: #2563eb;
   border: none;
   border-radius: 10px;
@@ -65,7 +76,7 @@
 
 .project-card {
   background: rgba(0, 0, 0, 0.55);
-  padding: 22px 28px;
+  padding: 24px 30px;
   border-radius: 16px;
   display: flex;
   flex-direction: row;
@@ -73,16 +84,16 @@
   justify-content: space-between;
   gap: 40px;
   backdrop-filter: blur(8px);
-  transition: 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
 .project-card h3 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -93,49 +104,28 @@
 }
 
 .tech-badge {
-  padding: 6px 12px;
+  padding: 7px 14px;
   border-radius: 16px;
-  font-size: 12px;
+  font-size: 13px;
   background: #1e293b;
   color: #38bdf8;
   border: 1px solid #334155;
 }
 
-.status-planning {
-  background: #facc15;
-  color: black;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.status-in-progress {
-  background: #3b82f6;
-  color: white;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.status-completed {
-  background: #22c55e;
-  color: white;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
+.status-planning,
+.status-in-progress,
+.status-completed,
 .status-on-hold {
-  background: #ef4444;
-  color: white;
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 12px;
   font-weight: 600;
 }
+
+.status-planning { background: #facc15; color: black; }
+.status-in-progress { background: #3b82f6; color: white; }
+.status-completed { background: #22c55e; color: white; }
+.status-on-hold { background: #ef4444; color: white; }
 
 .project-actions {
   display: flex;
@@ -144,11 +134,11 @@
 }
 
 .project-actions button {
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   transition: 0.3s ease;
 }
@@ -180,4 +170,54 @@
 
 .project-actions a:hover {
   color: #3b82f6;
+}
+
+
+
+@media (max-width: 1024px) {
+  .dashboard-wrapper {
+    padding: 30px;
+  }
+
+  .project-form {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .project-card {
+    gap: 25px;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    padding: 20px;
+  }
+
+  .dashboard-title {
+    font-size: 24px;
+  }
+
+  .project-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .project-form textarea {
+    height: 70px;
+  }
+
+  .project-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .project-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
 }

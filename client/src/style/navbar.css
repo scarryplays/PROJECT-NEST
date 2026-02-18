@@ -45,7 +45,6 @@
 .hamburger {
   font-size: 22px;
   color: rgb(0, 0, 0);
-  /* margin-top: 10px; */
 }
 
 .sidebar-menu {
@@ -81,9 +80,25 @@
 .sidebar.open .nav-link {
   opacity: 1;
 }
+
 .main-logo {
   filter: brightness(50%) contrast(3000%);
 }
+
 .sidebar.open .nav-link:hover {
   color: white;
+}
+
+/* ===== Mobile Only ===== */
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    width: 240px;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
 }
