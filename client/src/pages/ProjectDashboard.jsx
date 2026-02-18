@@ -46,7 +46,7 @@ export const ProjectDashboard = () => {
 
     const url = editId
       ? `/api/auth/projects/${editId}`
-      : "/api/auth/projects";
+      : "/api/auth/project";
 
     const method = editId ? "PUT" : "POST";
 
