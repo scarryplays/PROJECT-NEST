@@ -18,7 +18,7 @@ export const ProjectDashboard = () => {
   }, []);
 
   const fetchProjects = async () => {
-    const res = await fetch("http://16.171.236.152:5000/api/auth/projects", {
+    const res = await fetch("/api/auth/projects", {
       headers: {
         Authorization: localStorage.getItem("token"),
       },
@@ -45,8 +45,8 @@ export const ProjectDashboard = () => {
     };
 
     const url = editId
-      ? `http://16.171.236.152:5000/api/auth/projects/${editId}`
-      : "http://16.171.236.152:5000/api/auth/projects";
+      ? `/api/auth/projects/${editId}`
+      : "/api/auth/projects";
 
     const method = editId ? "PUT" : "POST";
 
@@ -74,7 +74,7 @@ export const ProjectDashboard = () => {
   };
 
   const handleDelete = async (id) => {
-    await fetch(`http://16.171.236.152:5000/api/auth/projects/${id}`, {
+    await fetch(`/api/auth/projects/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: localStorage.getItem("token"),

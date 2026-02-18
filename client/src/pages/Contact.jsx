@@ -21,7 +21,7 @@ export const Contact = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://16.171.236.152:5000/api/auth/contact", {
+      const response = await fetch("/api/auth/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

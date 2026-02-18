@@ -16,7 +16,7 @@ export const Login =()=>{
      const {storeToken} = useAuth()
 
 const handleInput = (e)=>{
-console.log(e);
+// console.log(e);
 let name =  e.target.name;
 let value = e.target.value
 
@@ -33,7 +33,7 @@ const handleSubmit =async (e)=>{
     // alert(user);
     // console.log(user);
    try {
-     const response = await fetch(`http://16.171.236.152:5000/api/auth/login`,{
+     const response = await fetch(`/api/auth/login`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -44,7 +44,7 @@ const handleSubmit =async (e)=>{
     if(response.ok){
 
   const res_data = await response.json();
-     console.log("token aagaya ooye", res_data)
+    //  console.log("token aagaya ooye", res_data)
      storeToken(res_data.token)
     // localStorage.setItem("token",res_data.token)
 
@@ -63,7 +63,7 @@ const handleSubmit =async (e)=>{
     }else{
       alert("invalid credential")
     }
-     console.log(response);
+    //  console.log(response);
    } catch (error) {
     console.log("CONNECTION FAIL",error);
     
