@@ -8,7 +8,7 @@ A full-stack MERN application to manage personal projects with secure authentica
 🔗 https://your-live-link.com  
 
 ## 📂 GitHub Repository
-🔗 https://github.com/your-username/projectnest  
+🔗 https://github.com/scarryplays/projectnest  
 
 ---
 
@@ -78,7 +78,7 @@ projectnest/
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/your-username/projectnest.git
+git clone https://github.com/scarryplays/projectnest.git
 cd projectnest
 ```
 
