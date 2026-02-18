@@ -96,7 +96,7 @@ Create `.env` file inside `server`:
 ```
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
+JWT_KEY=your_secret_key
 ```
 
 Run backend:
