@@ -33,7 +33,7 @@ const handleSubmit =async (e)=>{
     // alert(user);
     // console.log(user);
    try {
-     const response = await fetch(`http://localhost:5000/api/auth/login`,{
+     const response = await fetch(`http://16.171.236.152:5000/api/auth/login`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
