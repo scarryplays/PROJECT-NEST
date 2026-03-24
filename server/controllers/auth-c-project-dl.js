@@ -1,7 +1,7 @@
 const {projectSchema} = require("../models/saveproject-model");
 
   
-// Delete one of the file from the projects
+
 
 
 const deleteProject = async (req, res) => {
